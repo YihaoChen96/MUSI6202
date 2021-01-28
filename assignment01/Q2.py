@@ -9,7 +9,7 @@ def findSnarePosition(snareFilename, drumloopFilename):
     peaks, properties = find_peaks(corr, height = 0.75)
     return list(peaks)
 
-if __name__ == "main":
+if __name__ == "__main__":
     peaks = findSnarePosition("snare.wav", "drum_loop.wav")
     with open("results/02-snareLocation.txt", "w") as f:
         f.writelines("%s\n" % p for p in peaks)
