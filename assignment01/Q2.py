@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 def findSnarePosition(snareFilename, drumloopFilename):
     snare_rate, snare_data = loadSoundFile(snareFilename)
     drum_rate, drum_loop = loadSoundFile(drumloopFilename)
-    corr = crossCorr(snare_data, drum_loop)
+    corr = crossCorr(drum_loop, snare_data)
     peaks, properties = find_peaks(corr, height = 0.75)
     return list(peaks)
 

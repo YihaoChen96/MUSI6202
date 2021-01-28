@@ -37,14 +37,13 @@ def loadSoundFile(filename):
 def main():
     snare_rate, snare_data = loadSoundFile("snare.wav")
     drum_rate, drum_loop = loadSoundFile("drum_loop.wav")
-    corr = crossCorr(snare_data, drum_loop)
-    lags = correlation_lags(len(drum_loop), len(snare_data))
+    corr = crossCorr(drum_loop, snare_data)
 
     # Plot figure
     fig = plt.figure()
     ax = fig.add_subplot(1,1,1)
-    ax.plot(lags, corr)
+    ax.plot(corr)
     ax.set_title("Cross-Correlated Signal")
-    ax.set_xlabel("Lag")
+    ax.set_xlabel("Sample Position")
     plt.savefig("results/01-correlation.png", format = "png")
     
