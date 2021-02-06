@@ -1,0 +1,4 @@
+Mean Diff: 2.715648278744633e-18
+Abs Mean Diff: 4.193919318462428e-16
+Stdev: 5.344620183526074e-16
+MyConv Time Used: 0.144988 sec, Scipy Time Used: 0.010998 sec

@@ -14,7 +14,7 @@ def loadSoundFile(filename):
 
     # Get left channel
     origin = data
-    if data.shape[1] > 1:
+    if len(data.shape) > 1:
         data = data[:,0]
         
     # Normalize
