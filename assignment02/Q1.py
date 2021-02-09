@@ -12,13 +12,17 @@ def myTimeConv(x, h):
         raise ValueError('x cannot be empty')
     if M == 0:
         raise ValueError('h cannot be empty')
-    x = np.array(x)
-    h = np.array(h)
+    x = np.pad(np.array(x), M-1)
+    h = np.flip(np.array(h))
+    y = np.zeros(K+M-1)
+
+    for i in range(K+M-1):
+        y[i] = np.dot(h, x[i:i+M])
     
-    x_freq = np.fft.fft(x, K+M-1)
-    h_freq = np.fft.fft(h, K+M-1)
-    y_freq = np.multiply(x_freq, h_freq)
-    y = np.fft.ifft(y_freq).real
+    # x_freq = np.fft.fft(x, K+M-1)
+    # h_freq = np.fft.fft(h, K+M-1)
+    # y_freq = np.multiply(x_freq, h_freq)
+    # y = np.fft.ifft(y_freq).real
 
     return y
 
