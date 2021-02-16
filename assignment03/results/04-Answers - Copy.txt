@@ -1,0 +1,4 @@
+Q4-3
+In the rectagular-windowed spectrogram, there are many high-frequency components(7.5k+) while there's very little in the one with Hann window applied. 
+Besides, the components below 7.5k of the rectagular-windowed spectrogram are less clearly separated as the ones in the hann-windowed version.
+This could be because hann window can help reducing spectral leakage.

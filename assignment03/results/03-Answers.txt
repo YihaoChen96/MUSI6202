@@ -1,0 +1,6 @@
+Q3-4
+Freq Resolution = 44100 / 22050 = 2Hz/bin, where 44.1k is the sample rate and 22050 is the number of bins
+
+Q3-5
+Zero-pad the signal with the same size of the input will increase the number of bins from 22050 to 44100, 
+which results in Freq Resolution = 44100/44100 = 1Hz/bin. The resolution gets finer.
