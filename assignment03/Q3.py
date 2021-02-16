@@ -6,7 +6,10 @@ import matplotlib.pyplot as plt
 def computeSpectrum(x, sample_rate_Hz):
 
     spectrum = np.fft.fft(x) / x.shape[0]
-    f = np.fft.fftfreq(spectrum.shape[0], 1/sample_rate_Hz)[:spectrum.shape[0]//2]
+
+    value = 1.0 / spectrum.shape[0] * sample_rate_Hz
+    f = np.arange(0, (spectrum.shape[0]-1)//2, dtype = int)
+    f = f * value
 
     half_spec = spectrum[:spectrum.shape[0]//2]
     XAbs = np.abs(half_spec)
