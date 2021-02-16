@@ -23,12 +23,12 @@ def mySpecgram(x,  block_size, hop_size, sampling_rate_Hz, window_type):
         rect_window = np.ones(block_size)
         title = "Rect-Windowed Spectrogram"
         fname = "results/04-rect_specgram.png"
-        magnitude_spectrogram, freq_vector, time_vector, im = ax.specgram(x, Fs = sampling_rate_Hz, NFFT = block_size, noverlap = block_size - hop_size, window = rect_window)
+        magnitude_spectrogram, freq_vector, time_vector, im = ax.specgram(x, sides = "onesided", Fs = sampling_rate_Hz, NFFT = block_size, noverlap = block_size - hop_size, window = rect_window)
     elif window_type == "hann":
         hann_window = np.hanning(block_size)
         title = "Hann-Windowed Spectrogram"
         fname = "results/04-hann_specgram.png"
-        magnitude_spectrogram, freq_vector, time_vector, im = ax.specgram(x, Fs = sampling_rate_Hz, NFFT = block_size, noverlap = block_size - hop_size, window = hann_window)
+        magnitude_spectrogram, freq_vector, time_vector, im = ax.specgram(x, sides = "onesided", Fs = sampling_rate_Hz, NFFT = block_size, noverlap = block_size - hop_size, window = hann_window)
     else:
         raise NotImplementedError("Window type not supported")
     
@@ -37,7 +37,7 @@ def mySpecgram(x,  block_size, hop_size, sampling_rate_Hz, window_type):
     ax.set_title(title)
     plt.savefig(fname)
 
-    return freq_vector, time_vector, magnitude_spectrogram
+    return freq_vector[1:], time_vector, magnitude_spectrogram[1:]
 
 if __name__ == "__main__":
     square_amplitude = 1.0
