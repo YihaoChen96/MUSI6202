@@ -36,8 +36,8 @@ def mySpecgram(x,  block_size, hop_size, sampling_rate_Hz, window_type):
     ax.set_ylabel("Frequency(Hz)")
     ax.set_title(title)
     plt.savefig(fname)
-
-    return freq_vector[1:], time_vector, magnitude_spectrogram[1:]
+    
+    return freq_vector, time_vector, magnitude_spectrogram
 
 if __name__ == "__main__":
     square_amplitude = 1.0
